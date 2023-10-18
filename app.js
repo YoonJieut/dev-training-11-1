@@ -9,6 +9,16 @@ const server = http.createServer((req, res)=>{
     return res.end('서버에 문제가 생겼습니다.');
   }
 
+  function fsReadFileFunc(url, textType){
+    fs.readFile(url, 'utf8', (err, data)=>{
+      if(err){
+        serverErrorLog();
+      }
+      res.writeHead(200, {'Content-Type' : textType });
+      res.end(data)
+    })
+  }
+
   console.log('어떤 요청이 들어오는지 확인', 'url ->',req.url, "method ->", req.method);
   // 라우팅 처리 제작, 2개의 요청 데이터를 확인해야 한다.
   // 1. 요청 URL
