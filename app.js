@@ -69,16 +69,18 @@ const server = http.createServer((req, res)=>{
     req.on("data", (chunk)=>{
       console.log("on-data 작동됨")
       console.log("data의 chunk 매개변수의 값", chunk);
-      save += chunk.toString();
+      console.log("-------------------------")
+      save += chunk.toString(); 
     });
 
     req.on('end', ()=>{
       const parseSave = querystring.parse(save); // 요청 본문을 파싱
-      const { id, password, email } = parseSave;
+      const { id, password, passwordTwo, email } = parseSave;
 
       console.log(`form입력 받은 데이터 -> `, parseSave);
       console.log(`form입력 받은 데이터 -> `, id);
       console.log(`form입력 받은 데이터 -> `, password);
+      console.log(`form입력 받은 데이터 -> `, passwordTwo);
       console.log(`form입력 받은 데이터 -> `, email);
 
       res.writeHead(200, {"Content-Type" : "text/plain"})
