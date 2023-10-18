@@ -29,32 +29,30 @@ const server = http.createServer((req, res)=>{
   // 라우팅 처리 제작, 2개의 요청 데이터를 확인해야 한다.
   // 1. 요청 URL
   // 2. 요청 METHOD
+
+  // 메인 페이지 라우트
   if (req.url === "/" && req.method === "GET") {
     // console.log( "잘 작동 중")
-    fs.readFile('./static/index.html', 'utf8', (err, data)=>{
-      if(err){
-        serverErrorLog();
-      }
-      res.writeHead(200, {'Content-Type' : 'text/html'});
-      res.end(data)
-    })
-  } else if (req.url === "/css/style.css" && req.method === "GET") {
-    fs.readFile('./static/css/style.css', 'utf8', (err, data)=>{
-      if(err){
-        serverErrorLog();
-      }
-      res.writeHead(200, {'Content-Type' : 'text/css'});
-      res.end(data)
-    })
-  } else if (req.url === "/js/index.js" && req.method === "GET") {
-    fs.readFile('./static/js/index.js', 'utf8', (err, data)=>{
-      if(err){
-        serverErrorLog();
-      }
-      res.writeHead(200, {'Content-Type' : 'application/javascript'});
-      res.end(data)
-    })
-  } else {
+    fsReadFileFunc("./static/index.html",textTypeList[0]);
+  } 
+  else if (req.url === "/css/style.css" && req.method === "GET") {
+    fsReadFileFunc("./static/css/style.css", textTypeList[1]);
+  } 
+  
+  // 서브페이지 라우트
+  else if (req.url === "/sub.html" && req.method === "GET") {
+    fsReadFileFunc("./static/sub.html", textTypeList[0]);
+  }  
+  else if (req.url === "/css/substyle.css" && req.method === "GET") {
+    fsReadFileFunc("./static/css/substyle.css", textTypeList[1]);
+  } 
+
+  // js 파일 라우트
+  else if (req.url === "/model/signUpAsset.js" && req.method === "GET") {
+    fsReadFileFunc("./static/css/style.css", textTypeList[2]);
+  }  
+  
+  else {
     res.writeHead(404);
     res.end('Not Found');
   }
