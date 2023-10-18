@@ -1,5 +1,7 @@
 const http = require('http');
 const fs = require('fs');
+const sign = require('./model/signUpAsset')
+const querystring = require('querystring');
 
 const server = http.createServer((req, res)=>{
 
@@ -56,6 +58,32 @@ const server = http.createServer((req, res)=>{
     res.writeHead(404);
     res.end('Not Found');
   }
+
+
+  // ! POST 방식 데이터 다루기
+  if (req.method === "POST" && req.url === "/login"){
+    console.log("Post if는 method"+req.method)
+    console.log("Post if는 url"+req.url)
+    let save = "";
+
+    req.on("data", (chunk)=>{
+      save += chunk.toString();
+    });
+
+    req.on('end', ()=>{
+      const parseSave = querystring.parse(save); // 요청 본문을 파싱
+      const { id, password, email } = parseSave;
+
+      console.log(`form입력 받은 데이터 -> `, parseSave);
+      console.log(`form입력 받은 데이터 -> `, id);
+      console.log(`form입력 받은 데이터 -> `, password);
+      console.log(`form입력 받은 데이터 -> `, email);
+
+      res.writeHead(200, {"Content-Type" : "text/plain"})
+      res.end("Login succecss!!")
+    });
+  }
+
 })
 
 
