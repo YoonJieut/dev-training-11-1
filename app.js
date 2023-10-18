@@ -67,6 +67,8 @@ const server = http.createServer((req, res)=>{
     let save = "";
 
     req.on("data", (chunk)=>{
+      console.log("on-data 작동됨")
+      console.log("data의 chunk 매개변수의 값", chunk);
       save += chunk.toString();
     });
 
