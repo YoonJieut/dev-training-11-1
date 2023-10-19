@@ -69,6 +69,7 @@ console.log(sign);
       console.log(`form입력 받은 데이터 -> `, passwordTwo);
       console.log(`form입력 받은 데이터 -> `, email);
     });
+    
     fsReadFileFunc("./static/sub.html", textTypeList[0]);
 
   }  
