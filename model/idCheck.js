@@ -36,7 +36,6 @@ const idCheck = (value)=>{
         break;
       }
     }
-
     
     if( upperResult === true && lowerResult === true){
       return true;
