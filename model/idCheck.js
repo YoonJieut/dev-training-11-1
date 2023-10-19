@@ -12,11 +12,11 @@ const idCheck = (value)=>{
     valueArr = [...value];
 
     // 비교용 대소문자 배열
-    let upperValue = toUpperCase(value);
+    let upperValue = value.toUpperCase();
     let upperArr = [];
     upperArr = [...upperValue];
 
-    let lowerValue = toLowerCase(value);
+    let lowerValue = value.toLowerCase();
     let lowerArr = [];
     lowerArr = [...lowerValue];
 
