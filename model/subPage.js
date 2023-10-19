@@ -14,17 +14,21 @@ return `
     }
     h1>span {
       background-color: ${pointColor};
+      border-radius : 10px;
     }
     input {
       background-color : ${inputBoxColor};
     }
-
+    #textsend {
+      padding : 2px 10px;
+      background-color: ${pointColor};
+    }
   </style>
   <title>sub page</title>
 </head>
 <body>
   <div id="root">
-  <h1><span>${id}<span> 님 반갑습니다.<br>저에게 편지를 보내주세요!</h1>
+  <h1><span>${id}</span> 님 반갑습니다.<br>저에게 편지를 보내주세요!</h1>
     <label for="id" id="helloDiv"></label>
     <form action="/" method="post">
       <label for="title">
@@ -35,8 +39,8 @@ return `
         Text
         <input type="text" id="textPart">
       </label>
-      <input type="submit" value="완료" id=">
-    </form>
+      <input type="submit" value="완료" id="textsend">
+    </form>"
   </div>
 </body>
 </html>

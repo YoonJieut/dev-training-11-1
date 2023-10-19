@@ -38,7 +38,8 @@ const server = http.createServer((req, res)=>{
     fsReadFileFunc("./static/css/style.css", textTypeList[1]);
   } 
   
-  // 서브페이지 라우트
+  // * 서브페이지 라우트 
+  // * end에 텍스트를 리턴하는 함수를 넣어 생성
   else if (req.url === "/sub.html" && req.method === "POST") {
     let save = "";
     req.on("data", (chunk)=>{
@@ -61,7 +62,7 @@ const server = http.createServer((req, res)=>{
       res.writeHead(200, {'Content-Type' : "text/html ; charset=utf-8" });
       res.end(
         //* 서프페이지 만들 모듈들어갈 자리
-        subPage(newSign.pointColor ,newSign.id)
+        subPage(newSign.id)
         );
     });
 
