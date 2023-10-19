@@ -65,8 +65,6 @@ const server = http.createServer((req, res)=>{
         subPage(newSign.id)
         );
     });
-
-    
   }  
   else if (req.url === "/css/substyle.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/substyle.css", textTypeList[1]);
