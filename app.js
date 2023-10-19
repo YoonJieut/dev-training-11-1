@@ -7,7 +7,6 @@ const server = http.createServer((req, res)=>{
 
 
 console.log(sign);
-console.log(sign.id);
 
   // 가독성을 위한 단순 함수 래핑
   function serverErrorLog() {
@@ -31,6 +30,8 @@ console.log(sign.id);
   }
 
 
+
+
   console.log('어떤 요청이 들어오는지 확인', 'url ->',req.url, "method ->", req.method);
   // 라우팅 처리 제작, 2개의 요청 데이터를 확인해야 한다.
   // 1. 요청 URL
@@ -46,7 +47,7 @@ console.log(sign.id);
   } 
   
   // 서브페이지 라우트
-  else if (req.url === "/sub.html" && req.method === "GET") {
+  else if (req.url === "/sub.html" && req.method === "POST") {
     fsReadFileFunc("./static/sub.html", textTypeList[0]);
   }  
   else if (req.url === "/css/substyle.css" && req.method === "GET") {
@@ -65,7 +66,7 @@ console.log(sign.id);
 
 
   // ! POST 방식 데이터 다루기
-  if (req.method === "POST" && req.url === "/login"){
+  if (req.method === "POST" && req.url === "/sub.html"){
     console.log("Post if는 method"+req.method)
     console.log("Post if는 url"+req.url)
     let save = "";
@@ -89,9 +90,8 @@ console.log(sign.id);
       console.log(`form입력 받은 데이터 -> `, password);
       console.log(`form입력 받은 데이터 -> `, passwordTwo);
       console.log(`form입력 받은 데이터 -> `, email);
-
-      res.writeHead(200, {"Content-Type" : "text/plain"})
-      res.end("Login succecss!!")
+      
+      fsReadFileFunc('./static/sub.html', textTypeList[0]);
     });
   } 
 
