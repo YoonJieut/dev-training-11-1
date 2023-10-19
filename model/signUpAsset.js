@@ -8,5 +8,6 @@ const signUpAsset = {
 }
 
 console.log('hi im Asset');
+console.log('현재 signUpAsset', +signUpAsset);
 
 module.exports = signUpAsset;
