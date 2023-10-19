@@ -48,7 +48,29 @@ console.log(sign);
   
   // 서브페이지 라우트
   else if (req.url === "/sub.html" && req.method === "POST") {
+    // ! 서브페이지 데이터 다뤄보기 테스트 시작!
+
+    console.log("Post if는 method"+req.method)
+    console.log("Post if는 url"+req.url)
+
+    let save = "";
+    req.on("data", (chunk)=>{
+      save += chunk.toString(); 
+    });
+
+    req.on('end', ()=>{
+      const parseSave = querystring.parse(save); // 요청 본문을 파싱
+      const { id, password, passwordTwo, email } = parseSave;
+      sign.id = parseSave.id;
+      console.log(`sign이 수정됬는지 테스트`, sign);
+      console.log(`form입력 받은 데이터 -> `, parseSave);
+      console.log(`form입력 받은 데이터 -> `, id);
+      console.log(`form입력 받은 데이터 -> `, password);
+      console.log(`form입력 받은 데이터 -> `, passwordTwo);
+      console.log(`form입력 받은 데이터 -> `, email);
+    });
     fsReadFileFunc("./static/sub.html", textTypeList[0]);
+
   }  
   else if (req.url === "/css/substyle.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/substyle.css", textTypeList[1]);
@@ -63,38 +85,6 @@ console.log(sign);
     res.writeHead(404);
     res.end('Not Found');
   }
-
-
-  // ! POST 방식 데이터 다루기
-  if (req.method === "POST" && req.url === "/sub.html"){
-    console.log("Post if는 method"+req.method)
-    console.log("Post if는 url"+req.url)
-    let save = "";
-
-    req.on("data", (chunk)=>{
-      // console.log("on-data 작동됨")
-      // console.log("data의 chunk 매개변수의 값", chunk);
-      // console.log("-------------------------")
-      save += chunk.toString(); 
-    });
-
-    req.on('end', ()=>{
-      const parseSave = querystring.parse(save); // 요청 본문을 파싱
-      // 각 변수에, 입력 받은 데이터들을 대입한다.
-      const { id, password, passwordTwo, email } = parseSave;
-      // console.log('parseSave를 확인한다.'+parseSave);
-      sign.id = parseSave.id;
-      console.log(`sign이 수정됬는지 테스트`, sign);
-      console.log(`form입력 받은 데이터 -> `, parseSave);
-      console.log(`form입력 받은 데이터 -> `, id);
-      console.log(`form입력 받은 데이터 -> `, password);
-      console.log(`form입력 받은 데이터 -> `, passwordTwo);
-      console.log(`form입력 받은 데이터 -> `, email);
-      
-      fsReadFileFunc('./static/sub.html', textTypeList[0]);
-    });
-  } 
-
 })
 
 
