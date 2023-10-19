@@ -69,7 +69,7 @@ console.log(sign);
       console.log(`form입력 받은 데이터 -> `, passwordTwo);
       console.log(`form입력 받은 데이터 -> `, email);
     });
-    
+
     fsReadFileFunc("./static/sub.html", textTypeList[0]);
 
   }  
@@ -79,7 +79,10 @@ console.log(sign);
 
   // js 파일 라우트
   else if (req.url === "/model/signUpAsset.js" && req.method === "GET") {
-    fsReadFileFunc("./static/css/style.css", textTypeList[2]);
+    fsReadFileFunc("./model/signUpAsset.js", textTypeList[2]);
+  }  
+  else if (req.url === "/static/js/subcustom.js" && req.method === "GET") {
+    fsReadFileFunc("./static/js/subcustom.js", textTypeList[2]);
   }  
   
   else {
