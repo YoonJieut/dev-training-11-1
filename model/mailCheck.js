@@ -1,11 +1,14 @@
 /**
  * 이메일 칸을 아스키 코드로 바꾸어 비교합니다.
+ * 
+ * @param {string} value 이메일 인풋 값을 작성받습니다.
+ * @return {boolean} 기본 값은 false, 맞을 시 true 를 배출합니다.
  */
 
 const mailCheck = (value)=>{
   if(typeof(value)==="string"){
     // 초기값들
-    let valueArr = [...value];
+    let valueArr = [...value].map(x => x.charCodeAt());
     let atSignUni = "@".charCodeAt();
     let dotUni = ".".charCodeAt();
     let newArr = [];
@@ -26,6 +29,7 @@ const mailCheck = (value)=>{
           }
         }
       )
+    return result;
   }
 };
 
