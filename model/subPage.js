@@ -1,4 +1,6 @@
-const subPage = (pointColor, id)=>{
+const { inputBoxColor, textColor, pointColor } = require("./signUpAsset");
+
+const subPage = (id)=>{
 return `
 <!DOCTYPE html>
 <html lang="en">
@@ -7,9 +9,16 @@ return `
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/substyle.css">
   <style>
+    *{
+      color : ${textColor};
+    }
     h1>span {
       background-color: ${pointColor};
     }
+    input {
+      background-color : ${inputBoxColor};
+    }
+
   </style>
   <title>sub page</title>
 </head>
