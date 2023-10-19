@@ -17,6 +17,7 @@ a{
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -36,7 +37,17 @@ label {
 
   width: 30vw;
 }
+input {
+  width: 80%;
+}
 
 #helloDiv {
   margin-bottom: 40px;
+}
+#textPart {
+  height: 35vh;
+}
+
+h1 > span {
+  padding: 10px;
 }

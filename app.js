@@ -2,8 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
 const sign = require('./model/signUpAsset');
-
-
+const subPage = require('./model/subPage');
 const server = http.createServer((req, res)=>{
 
   // 가독성을 위한 단순 함수 래핑
@@ -28,9 +27,6 @@ const server = http.createServer((req, res)=>{
     })
   }
 
-
-
-
   console.log('어떤 요청이 들어오는지 확인', 'url ->',req.url, "method ->", req.method);
 
   // ! 메인 페이지 라우트 시작
@@ -54,27 +50,26 @@ const server = http.createServer((req, res)=>{
 
       // 깊은 복사를 통해 파일 보관하기
       const newSign = JSON.parse(JSON.stringify(sign));
+      
       // 데이터 넣어두기
       newSign.id = id;
       newSign.password = password;
       newSign.passwordTwo = passwordTwo;
       newSign.email = email;
-      console.log(newSign);
+      // console.log(newSign);
 
+      res.writeHead(200, {'Content-Type' : "text/html ; charset=utf-8" });
+      res.end(
+        //* 서프페이지 만들 모듈들어갈 자리
+        subPage(newSign.pointColor ,newSign.id)
+        );
     });
 
-    fsReadFileFunc("./static/sub.html", textTypeList[0]);
     
   }  
   else if (req.url === "/css/substyle.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/substyle.css", textTypeList[1]);
   } 
-
-  // js 파일 라우트
-  else if (req.url === "/static/js/subcustom.js" && req.method === "GET") {
-    fsReadFileFunc("./static/js/subcustom.js", textTypeList[2]);
-  }  
-  
   else {
     res.writeHead(404);
     res.end('Not Found');
