@@ -29,7 +29,7 @@ const server = http.createServer((req, res)=>{
 
   console.log('어떤 요청이 들어오는지 확인', 'url ->',req.url, "method ->", req.method);
 
-  // ! 메인 페이지 라우트 시작
+  // * 메인 페이지 라우트 시작
   if (req.url === "/" && req.method === "GET") {
     // console.log( "잘 작동 중")
     fsReadFileFunc("./static/index.html",textTypeList[0]);
