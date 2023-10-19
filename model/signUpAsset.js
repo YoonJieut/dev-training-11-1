@@ -7,7 +7,4 @@ const signUpAsset = {
   pointColor : "#FF6666"
 }
 
-console.log('hi im Asset');
-console.log('현재 signUpAsset', +signUpAsset);
-
 module.exports = signUpAsset;

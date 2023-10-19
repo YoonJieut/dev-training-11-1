@@ -6,7 +6,7 @@ const querystring = require('querystring');
 const server = http.createServer((req, res)=>{
 
 
-console.log(sign);
+// console.log(sign);
 
   // 가독성을 위한 단순 함수 래핑
   function serverErrorLog() {
@@ -50,8 +50,8 @@ console.log(sign);
   else if (req.url === "/sub.html" && req.method === "POST") {
     // ! 서브페이지 데이터 다뤄보기 테스트 시작!
 
-    console.log("Post if는 method"+req.method)
-    console.log("Post if는 url"+req.url)
+    // console.log("Post if는 method"+req.method)
+    // console.log("Post if는 url"+req.url)
 
     let save = "";
     req.on("data", (chunk)=>{
@@ -71,7 +71,7 @@ console.log(sign);
     });
 
     fsReadFileFunc("./static/sub.html", textTypeList[0]);
-
+    
   }  
   else if (req.url === "/css/substyle.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/substyle.css", textTypeList[1]);
