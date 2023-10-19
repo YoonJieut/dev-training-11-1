@@ -5,6 +5,10 @@ const querystring = require('querystring');
 
 const server = http.createServer((req, res)=>{
 
+
+console.log(sign);
+console.log(sign.id);
+
   // 가독성을 위한 단순 함수 래핑
   function serverErrorLog() {
     res.writeHead(500);
@@ -67,16 +71,19 @@ const server = http.createServer((req, res)=>{
     let save = "";
 
     req.on("data", (chunk)=>{
-      console.log("on-data 작동됨")
-      console.log("data의 chunk 매개변수의 값", chunk);
-      console.log("-------------------------")
+      // console.log("on-data 작동됨")
+      // console.log("data의 chunk 매개변수의 값", chunk);
+      // console.log("-------------------------")
       save += chunk.toString(); 
     });
 
     req.on('end', ()=>{
       const parseSave = querystring.parse(save); // 요청 본문을 파싱
+      // 각 변수에, 입력 받은 데이터들을 대입한다.
       const { id, password, passwordTwo, email } = parseSave;
-
+      // console.log('parseSave를 확인한다.'+parseSave);
+      sign.id = parseSave.id;
+      console.log(`sign이 수정됬는지 테스트`, sign);
       console.log(`form입력 받은 데이터 -> `, parseSave);
       console.log(`form입력 받은 데이터 -> `, id);
       console.log(`form입력 받은 데이터 -> `, password);
@@ -86,7 +93,7 @@ const server = http.createServer((req, res)=>{
       res.writeHead(200, {"Content-Type" : "text/plain"})
       res.end("Login succecss!!")
     });
-  }
+  } 
 
 })
 
