@@ -20,15 +20,16 @@ return `
       background-color : ${inputBoxColor};
     }
     #textsend {
-      padding : 2px 10px;
+      padding : 10px 10px;
       background-color: ${pointColor};
+      border-radius : 10px;
     }
   </style>
   <title>sub page</title>
 </head>
 <body>
   <div id="root">
-  <h1><span>${id}</span> 님 반갑습니다.<br>저에게 편지를 보내주세요!</h1>
+  <h1>< > 님 반갑습니다.<br>저에게 편지를 보내주세요!</h1>
     <label for="id" id="helloDiv"></label>
     <form action="/" method="post">
       <label for="title">
