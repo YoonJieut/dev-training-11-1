@@ -48,16 +48,10 @@ const server = http.createServer((req, res)=>{
   
   // 서브페이지 라우트
   else if (req.url === "/sub.html" && req.method === "POST") {
-    // ! 서브페이지 데이터 다뤄보기 테스트 시작!
-
-    // console.log("Post if는 method"+req.method)
-    // console.log("Post if는 url"+req.url)
-
     let save = "";
     req.on("data", (chunk)=>{
       save += chunk.toString(); 
     });
-
     req.on('end', ()=>{
       const parseSave = querystring.parse(save); // 요청 본문을 파싱
       const { id, password, passwordTwo, email } = parseSave;
