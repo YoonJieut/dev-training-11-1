@@ -1,3 +1,4 @@
+const subPage = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,3 +24,5 @@
   </div>
 </body>
 </html>
+`
+module.exports = subPage;

@@ -1,12 +1,10 @@
 const http = require('http');
 const fs = require('fs');
-const sign = require('./model/signUpAsset')
 const querystring = require('querystring');
+const sign = require('./model/signUpAsset');
+
 
 const server = http.createServer((req, res)=>{
-
-
-// console.log(sign);
 
   // 가독성을 위한 단순 함수 래핑
   function serverErrorLog() {
@@ -14,6 +12,7 @@ const server = http.createServer((req, res)=>{
     return res.end('서버에 문제가 생겼습니다.');
   }
 
+  // fs 모델 가독성을 위한 래핑
   const textTypeList = [
     "text/html",
     "text/css",
@@ -33,11 +32,8 @@ const server = http.createServer((req, res)=>{
 
 
   console.log('어떤 요청이 들어오는지 확인', 'url ->',req.url, "method ->", req.method);
-  // 라우팅 처리 제작, 2개의 요청 데이터를 확인해야 한다.
-  // 1. 요청 URL
-  // 2. 요청 METHOD
 
-  // 메인 페이지 라우트
+  // ! 메인 페이지 라우트 시작
   if (req.url === "/" && req.method === "GET") {
     // console.log( "잘 작동 중")
     fsReadFileFunc("./static/index.html",textTypeList[0]);
@@ -55,13 +51,16 @@ const server = http.createServer((req, res)=>{
     req.on('end', ()=>{
       const parseSave = querystring.parse(save); // 요청 본문을 파싱
       const { id, password, passwordTwo, email } = parseSave;
-      sign.id = parseSave.id;
-      console.log(`sign이 수정됬는지 테스트`, sign);
-      console.log(`form입력 받은 데이터 -> `, parseSave);
-      console.log(`form입력 받은 데이터 -> `, id);
-      console.log(`form입력 받은 데이터 -> `, password);
-      console.log(`form입력 받은 데이터 -> `, passwordTwo);
-      console.log(`form입력 받은 데이터 -> `, email);
+
+      // 깊은 복사를 통해 파일 보관하기
+      const newSign = JSON.parse(JSON.stringify(sign));
+      // 데이터 넣어두기
+      newSign.id = id;
+      newSign.password = password;
+      newSign.passwordTwo = passwordTwo;
+      newSign.email = email;
+      console.log(newSign);
+
     });
 
     fsReadFileFunc("./static/sub.html", textTypeList[0]);
@@ -72,9 +71,6 @@ const server = http.createServer((req, res)=>{
   } 
 
   // js 파일 라우트
-  else if (req.url === "/model/signUpAsset.js" && req.method === "GET") {
-    fsReadFileFunc("./model/signUpAsset.js", textTypeList[2]);
-  }  
   else if (req.url === "/static/js/subcustom.js" && req.method === "GET") {
     fsReadFileFunc("./static/js/subcustom.js", textTypeList[2]);
   }  
