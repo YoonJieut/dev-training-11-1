@@ -33,4 +33,4 @@ const mailCheck = (value)=>{
   return result;
 };
 
-export default mailCheck;
+module.exports= mailCheck;

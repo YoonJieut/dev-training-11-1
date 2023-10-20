@@ -9,5 +9,5 @@ const pwCheck = (pw1, pw2)=> {
   }
 };
 
-export default pwCheck;
+module.exports= pwCheck;
 
