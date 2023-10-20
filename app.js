@@ -49,6 +49,9 @@ const server = http.createServer((req, res)=>{
   else if (req.url === "/css/style.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/style.css", textTypeList[1]);
   } 
+  else if (req.url === "/js/index.js" && req.method === "GET") {
+    fsReadFileFunc("./static/js/index.js", textTypeList[2]);
+  } 
   
   // * 서브페이지 라우트 
   // * end에 텍스트를 리턴하는 함수를 넣어 생성

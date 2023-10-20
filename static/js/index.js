@@ -2,6 +2,8 @@ import { idCheck } from '/model/idCheck.js';
 import { mailCheck } from '/model/mailCheck.js';
 import { pwCheck } from '/model/pwCheck.js';
 
+console.log('index.js 실행')
+
   const email = document.getElementById('email');
   const submitBtn = document.getElementById('submit');
   const pw = document.getElementById('pw');
