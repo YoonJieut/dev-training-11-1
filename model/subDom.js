@@ -1,5 +1,3 @@
-
-
 /**
  * 문자열 반환 로직
  */
@@ -11,14 +9,16 @@ function subDom(){
   console.log(textPart);
   const btn = document.getElementById('textsend');
   
-  console.log(btn);
+  console.dir(btn);
   let titleCont = title.textContent
   let tpCont = textPart.textContent
-  btn.style.visibility = hidden;
-
-  textPart.addEventListener('change',()=>{
+  btn.style.visibility = "hidden";
+  textPart.addEventListener('input',()=>{
+    console.log(tpCont);
+    console.log(titleCont);
     if( titleCont !== undefined && tpCont !== undefined ){
-      btn.style.visibility = visible;
+      console.log("if 참")
+      btn.style.visibility = "visible";
     }
   })
   `
