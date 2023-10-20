@@ -43,6 +43,11 @@ return `
       <input type="submit" value="완료" id="textsend">
     </form>"
   </div>
+  <script>
+    //<!-- 페이로드 작성해보기--!>
+    let stor
+    
+  </scritp>
 </body>
 </html>
 `
