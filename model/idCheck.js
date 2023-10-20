@@ -44,4 +44,4 @@ const idCheck = (value)=>{
     }
   }
 };
-module.exports= idCheck;
+export default idCheck;

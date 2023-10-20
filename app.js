@@ -38,19 +38,22 @@ const server = http.createServer((req, res)=>{
   if (req.url === "/" && req.method === "GET") {
     // console.log( "잘 작동 중")    
     fsReadFileFunc("./static/index.html",textTypeList[0]);
-    // js파일을 먼저 읽는 것을 발견, 비동기를 시간지연으로 해결
-    setTimeout(()=>{
-      // script 모델들 준비하기
-      fsReadFileFunc("./model/idCheck.js", textTypeList[2]);
-      fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);
-      fsReadFileFunc("./model/pwCheck.js", textTypeList[2]);
-    }, 10)
+
+    
   } 
   else if (req.url === "/css/style.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/style.css", textTypeList[1]);
   } 
   else if (req.url === "/js/index.js" && req.method === "GET") {
     fsReadFileFunc("./static/js/index.js", textTypeList[2]);
+      // js파일을 먼저 읽는 것을 발견, 비동기를 시간지연으로 해결
+    setTimeout(()=>{
+      // script 모델들 준비하기
+      
+      fsReadFileFunc("./model/idCheck.js", textTypeList[2]);
+      fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);
+      fsReadFileFunc("./model/pwCheck.js", textTypeList[2]);
+    }, 10)
   } 
   
   // * 서브페이지 라우트 

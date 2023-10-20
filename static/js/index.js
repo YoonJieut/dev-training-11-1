@@ -1,6 +1,6 @@
-import { idCheck } from '/model/idCheck.js';
+import { idCheck } from '../../model/idCheck.js'
 import { mailCheck } from '/model/mailCheck.js';
-import { pwCheck } from '/model/pwCheck.js';
+import { pwCheck } from './model/pwCheck.js';
 
 console.log('index.js 실행')
 
