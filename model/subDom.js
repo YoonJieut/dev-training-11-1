@@ -1,11 +1,10 @@
 
 
 /**
- * 문자열을 내는 함수
- * ESM을 활용한 모듈 적용이 목표다.
+ * 문자열 반환 로직
  */
-export function subDom(){
-  console.log('subDom 시작')
+function subDom(){
+  return `console.log('subDom 시작')
   const title = document.getElementById('title');
   console.log(title);
   const textPart = document.getElementById('textPart');
@@ -15,12 +14,14 @@ export function subDom(){
   console.log(btn);
   let titleCont = title.textContent
   let tpCont = textPart.textContent
+  btn.style.visibility = hidden;
 
-  if( titleCont !== undefined || tpCont !== undefined ){
-    btn.ariaDisabled = true;
-    console.log(btn.ariaDisabled)
-  }else {
-    btn.ariaDisabled = false;
-    console.log(btn.ariaDisabled)
-  }
-} 
+  textPart.addEventListener('change',()=>{
+    if( titleCont !== undefined && tpCont !== undefined ){
+      btn.style.visibility = visible;
+    }
+  })
+  `
+}
+
+module.exports = subDom;

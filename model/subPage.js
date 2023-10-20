@@ -1,4 +1,7 @@
 const { inputBoxColor, textColor, pointColor } = require("./signUpAsset");
+const subDom = require('./subDom');
+
+
 
 const subPage = (id)=>{
 return `
@@ -29,7 +32,7 @@ return `
 </head>
 <body>
   <div id="root">
-  <h1>< > 님 반갑습니다.<br>저에게 편지를 보내주세요!</h1>
+  <h1>${id} 님 반갑습니다.<br>저에게 편지를 보내주세요!</h1>
     <label for="id" id="helloDiv"></label>
     <form action="/signUpAsset" method="post">
       <label for="title">
@@ -43,12 +46,10 @@ return `
       <input type="submit" value="완료" id="textsend">
     </form>"
   </div>
-  <script type="module">
-    import { subDom } from './subDom.js';
-    subDom();
-  </scritp>
+  <script>
+    ${subDom()}
+  </script>
 </body>
-</html>
 `
 }
 module.exports = subPage;
