@@ -45,7 +45,6 @@ const server = http.createServer((req, res)=>{
       fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);
       fsReadFileFunc("./model/pwCheck.js", textTypeList[2]);
     }, 10)
-
   } 
   else if (req.url === "/css/style.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/style.css", textTypeList[1]);
