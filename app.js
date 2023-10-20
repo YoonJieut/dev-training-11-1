@@ -7,6 +7,8 @@ const subPage = require('./model/subPage');
 
 const server = http.createServer((req, res)=>{
 
+
+
   // 가독성을 위한 단순 함수 래핑
   function serverErrorLog() {
     res.writeHead(500);
@@ -19,6 +21,7 @@ const server = http.createServer((req, res)=>{
     "text/css",
     'application/javascript'
   ]
+
   function fsReadFileFunc(url, textType){
     fs.readFile(url, 'utf8', (err, data)=>{
       if(err){
@@ -35,6 +38,11 @@ const server = http.createServer((req, res)=>{
   if (req.url === "/" && req.method === "GET") {
     // console.log( "잘 작동 중")
     fsReadFileFunc("./static/index.html",textTypeList[0]);
+      // script 모델들 준비하기
+    fsReadFileFunc("./model/idCheck.js", textTypeList[2]);
+    fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);
+    fsReadFileFunc("./model/pwCheck.js", textTypeList[2]);
+
   } 
   else if (req.url === "/css/style.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/style.css", textTypeList[1]);
@@ -69,7 +77,7 @@ const server = http.createServer((req, res)=>{
     });
   }  
   else if (req.url === "/css/substyle.css" && req.method === "GET") {
-    fsReadFileFunc("./static/css/substyle.css", textTypeList[1]);
+
   } 
   else {
     res.writeHead(404);
