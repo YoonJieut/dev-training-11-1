@@ -1,6 +1,4 @@
-import { idCheck } from '../../model/idCheck.js'
-import { mailCheck } from '/model/mailCheck.js';
-import { pwCheck } from './model/pwCheck.js';
+const {idCheck, mailCheck, pwCheck } = require('../../model')
 
 console.log('index.js 실행')
 
