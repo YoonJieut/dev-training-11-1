@@ -1,6 +1,6 @@
 const { inputBoxColor, textColor, pointColor } = require("./signUpAsset");
 
-const subPage = (id)=>{
+const subPage = (id, domModule)=>{
 return `
 <!DOCTYPE html>
 <html lang="en">
@@ -34,19 +34,17 @@ return `
     <form action="/" method="post">
       <label for="title">
         title
-        <input type="text">
+        <input type="text" name = "title" id= "title">
       </label>
       <label for="textPart" >
         Text
-        <input type="text" id="textPart">
+        <input type="text" id="textPart" name = "textPart">
       </label>
       <input type="submit" value="완료" id="textsend">
     </form>"
   </div>
   <script>
-    //<!-- 페이로드 작성해보기--!>
-    let stor
-    
+    ${domModule}
   </scritp>
 </body>
 </html>
