@@ -46,14 +46,14 @@ const server = http.createServer((req, res)=>{
   else if (req.url === "/js/index.js" && req.method === "GET") {
     fsReadFileFunc("./static/js/index.js", textTypeList[2]);
   } 
-  else if (req.url === "/model/idCheck.js" && req.method === "GET") {
-    fsReadFileFunc("./model/idCheck.js", textTypeList[2]);
+  else if (req.url === "/model/idCheck.mjs" && req.method === "GET") {
+    fsReadFileFunc("./model/idCheck.mjs", textTypeList[2]);
   } 
-  else if (req.url === "/model/mailCheck.js" && req.method === "GET") {
-    fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);
+  else if (req.url === "/model/mailCheck.mjs" && req.method === "GET") {
+    fsReadFileFunc("./model/mailCheck.mjs", textTypeList[2]);
   } 
-  else if (req.url === "/model/pwCheck.js" && req.method === "GET") {
-    fsReadFileFunc("./model/pwCheck.js", textTypeList[2]);
+  else if (req.url === "/model/pwCheck.mjs" && req.method === "GET") {
+    fsReadFileFunc("./model/pwCheck.mjs", textTypeList[2]);
   } 
   
   // * 서브페이지 라우트 

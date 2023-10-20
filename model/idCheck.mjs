@@ -45,4 +45,4 @@ const idCheck = (value)=>{
     }
   }
 };
-export default idCheck;
+export default idCheck ;
