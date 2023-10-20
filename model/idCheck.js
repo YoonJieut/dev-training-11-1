@@ -6,6 +6,7 @@
  * @return {Boolean} 비교 후 참이면 true를 냅니다.
  */
 const idCheck = (value)=>{
+  console.log(`idCheck start,`+ value);
   if(typeof(value) === "string" ){
     // 문자열을 배열로 만들기
     let valueArr =  [];
@@ -44,4 +45,4 @@ const idCheck = (value)=>{
     }
   }
 };
-module.exports =  idCheck;
+export default idCheck;

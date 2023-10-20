@@ -1,6 +1,6 @@
-const idCheck = require('model/idCheck.js');
-const mailCheck = require('/model/mailCheck');
-const pwCheck = require('/model/pwCheck');
+// const idCheck = require('model/idCheck.js');
+// const mailCheck = require('/model/mailCheck');
+// const pwCheck = require('/model/pwCheck');
 
 
 console.log('index.js 실행')
@@ -12,7 +12,7 @@ console.log('index.js 실행')
   const id = document.getElementById('id');
 
 
-  submitBtn.style.visibility = "hidden";
+  // submitBtn.style.visibility = "hidden";
 
 
   email.addEventListener('input',()=>{

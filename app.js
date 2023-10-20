@@ -7,8 +7,6 @@ const subPage = require('./model/subPage');
 
 const server = http.createServer((req, res)=>{
 
-
-
   // 가독성을 위한 단순 함수 래핑
   function serverErrorLog() {
     res.writeHead(500);
@@ -44,16 +42,18 @@ const server = http.createServer((req, res)=>{
   else if (req.url === "/css/style.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/style.css", textTypeList[1]);
   } 
+
   else if (req.url === "/js/index.js" && req.method === "GET") {
     fsReadFileFunc("./static/js/index.js", textTypeList[2]);
-      // js파일을 먼저 읽는 것을 발견, 비동기를 시간지연으로 해결
-    setTimeout(()=>{
-      // script 모델들 준비하기
-      
-      fsReadFileFunc("./model/idCheck.js", textTypeList[2]);
-      fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);
-      fsReadFileFunc("./model/pwCheck.js", textTypeList[2]);
-    }, 10)
+  } 
+  else if (req.url === "/model/idCheck.js" && req.method === "GET") {
+    fsReadFileFunc("./model/idCheck.js", textTypeList[2]);
+  } 
+  else if (req.url === "/model/mailCheck.js" && req.method === "GET") {
+    fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);
+  } 
+  else if (req.url === "/model/pwCheck.js" && req.method === "GET") {
+    fsReadFileFunc("./model/pwCheck.js", textTypeList[2]);
   } 
   
   // * 서브페이지 라우트 

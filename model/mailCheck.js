@@ -6,6 +6,7 @@
  */
 
 const mailCheck = (value)=>{
+  console.log(`mailCheck start,`+value);
   let result = false;
   
   if(typeof(value)==="string"){
@@ -33,4 +34,4 @@ const mailCheck = (value)=>{
   return result;
 };
 
-module.exports = mailCheck;
+export default mailCheck;
