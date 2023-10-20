@@ -27,10 +27,10 @@
       <input type="submit" value="전송" id="submit">
     </form>
   </div>
-  <script>
-    import { idCheck } from 'model/idCheck.mjs';
-    import { mailCheck } from 'model/mailCheck.js';
-    import { pwCheck } from 'model/pwCheck.js';
+  <script type="module">
+    import { idCheck } from '../model/idCheck.js';
+    import { mailCheck } from '../model/idCheck.js';
+    import { pwCheck } from '../model/idCheck.js';
 
     const email = document.getElementById('email');
     const submitBtn = document.getElementById('submit');
