@@ -1,4 +1,7 @@
-const {idCheck, mailCheck, pwCheck } = require('../../model')
+const idCheck = require('model/idCheck.js');
+const mailCheck = require('/model/mailCheck');
+const pwCheck = require('/model/pwCheck');
+
 
 console.log('index.js 실행')
 
