@@ -46,8 +46,8 @@ const server = http.createServer((req, res)=>{
   else if (req.url === "/js/index.js" && req.method === "GET") {
     fsReadFileFunc("./static/js/index.js", textTypeList[2]);
   } 
-  else if (req.url === "/model/idCheck.js" && req.method === "GET") {
-    fsReadFileFunc("./model/idCheck.js", textTypeList[2]);
+  else if (req.url === "/idCheck.js" && req.method === "GET") {
+    fsReadFileFunc("./static/idCheck.js", textTypeList[2]);
   } 
   else if (req.url === "/model/mailCheck.js" && req.method === "GET") {
     fsReadFileFunc("./model/mailCheck.js", textTypeList[2]);

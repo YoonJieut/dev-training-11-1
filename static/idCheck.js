@@ -17,7 +17,7 @@ export default idCheck = (value)=>{
     let upperArr = [];
     upperArr = [...upperValue];
 
-    let lowerValue = value.toLowerCase(); 
+    let lowerValue = value.toLowerCase();
     let lowerArr = [];
     lowerArr = [...lowerValue];
 

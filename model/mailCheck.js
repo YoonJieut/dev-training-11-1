@@ -5,7 +5,7 @@
  * @return {boolean} 기본 값은 false, 맞을 시 true 를 배출합니다.
  */
 
-const mailCheck = (value)=>{
+export default mailCheck = (value)=>{
   console.log(`mailCheck start,`+value);
   let result = false;
   
@@ -34,4 +34,3 @@ const mailCheck = (value)=>{
   return result;
 };
 
-export default mailCheck;
