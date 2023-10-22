@@ -3,6 +3,7 @@ const fs = require('fs');
 const querystring = require('querystring');
 const sign = require('./model/signUpAsset');
 const subPage = require('./model/subPage');
+const signUpAsset = require('./model/signUpAsset');
 
 
 const server = http.createServer((req, res)=>{
@@ -36,8 +37,6 @@ const server = http.createServer((req, res)=>{
   if (req.url === "/" && req.method === "GET") {
     // console.log( "잘 작동 중")    
     fsReadFileFunc("./static/index.html",textTypeList[0]);
-
-    
   } 
   else if (req.url === "/css/style.css" && req.method === "GET") {
     fsReadFileFunc("./static/css/style.css", textTypeList[1]);
@@ -85,7 +84,29 @@ const server = http.createServer((req, res)=>{
     });
   }  
   else if (req.url === "/css/substyle.css" && req.method === "GET") {
+    fsReadFileFunc("./static/css/substyle.css", textTypeList[1]);
+  } 
+  else if (req.url === "/signUpAsset" && req.method === "POST") {
+    let temp = "";
+    req.on("data", (chunk)=>{
+      temp += chunk.toString(); 
+    })
+    req.on('end', ()=>{
+      const parseTemp = querystring.parse(temp); // 요청 본문을 파싱
+      const { title, textPart } = parseTemp;
 
+
+      // 데이터 넣어두기
+      signUpAsset.title = title;
+      signUpAsset.textPart = textPart;
+      console.log(signUpAsset.title, signUpAsset.textPart);
+
+      res.writeHead(200, {'Content-Type' : "text/html ; charset=utf-8" });
+      res.end(
+        //* 서프페이지 만들 모듈들어갈 자리
+        `<h1>타이틀 : ${signUpAsset.title}<br> 본문 : ${signUpAsset.textPart} 입니다.</h1>`
+        );
+    });
   } 
   else {
     res.writeHead(404);

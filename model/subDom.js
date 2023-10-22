@@ -10,8 +10,8 @@ function subDom(){
   const btn = document.getElementById('textsend');
   
   console.dir(btn);
-  let titleCont = title.textContent
-  let tpCont = textPart.textContent
+  let titleCont = title.value
+  let tpCont = textPart.value
   btn.style.visibility = "hidden";
   textPart.addEventListener('input',()=>{
     console.log(tpCont);

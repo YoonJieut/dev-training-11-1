@@ -44,7 +44,7 @@ return `
         <input type="text" id="textPart" name = "textPart">
       </label>
       <input type="submit" value="완료" id="textsend">
-    </form>"
+    </form>
   </div>
   <script>
     ${subDom()}
