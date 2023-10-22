@@ -9,25 +9,25 @@
 <body>
   <div id="root">
     <form action="/sub.html" method="post">
-      <label for="inputBoxColor"> id
+      <label for="id"> id
         <input type="text" name="id" id="id">
       </label>
-      <label for="inputBoxColor"> password
+      <label for="pw"> password
         <input type="password" name="password" id="pw">
       </label>
-      <label for="inputBoxColor"> password II
+      <label for="pw2"> password II
         <input type="password" name="passwordTwo" id="pw2">
       </label>
-      <label for="inputBoxColor"> email
-        <input type="email" name="email" id="email">
+      <label for="email"> email
+        <input type="email" name="email" id="email" autocomplete="off">
       </label>
       <input type="submit" value="전송" id="submit">
     </form>
   </div>
   <script type="module">
-    import { idCheck } from './idCheck.js';
-    import { mailCheck } from '../model/idCheck.js';
-    import { pwCheck } from '../model/idCheck.js';
+    import { idCheck }  from './model/idCheck.js';
+    import { mailCheck }  from './model/mailCheck.js';
+    import  { pwCheck }  from './model/pwCheck.js';
 
     const email = document.getElementById('email');
     const submitBtn = document.getElementById('submit');

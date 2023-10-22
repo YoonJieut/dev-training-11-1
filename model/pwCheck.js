@@ -1,4 +1,4 @@
-const pwCheck = (pw1, pw2)=> {
+export const pwCheck = (pw1, pw2)=> {
   console.log(`pwCheck start,`+pw1+"000"+pw2);
   if(typeof(pw1)==="string" && typeof(pw2)==="string"){
     if(pw1.localeCompare(pw2)===0){
@@ -10,5 +10,5 @@ const pwCheck = (pw1, pw2)=> {
   }
 };
 
-export default pwCheck;
+
 
