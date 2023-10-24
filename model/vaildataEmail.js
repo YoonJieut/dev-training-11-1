@@ -1,1 +1,4 @@
-console.log('hi');
+function validateEmail(email){
+
+}
+module.exports = validateEmail;
