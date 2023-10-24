@@ -1,7 +1,7 @@
 // const idCheck = require('model/idCheck.js');
 // const mailCheck = require('/model/mailCheck');
 // const pwCheck = require('/model/pwCheck');
-
+const vEmail = require('./model/vEmail');
 
 console.log('index.js 실행')
 
@@ -15,8 +15,14 @@ console.log('index.js 실행')
   // submitBtn.style.visibility = "hidden";
 
 
+  // email.addEventListener('input',()=>{
+  //   if( idCheck(id.value)=== true && mailCheck(email.value)=== true && pwCheck(pw.value, pw2.value)=== true ){
+  //     console.log("if 참")
+  //     submitBtn.style.visibility = "visible";
+  //   }
+  // });
   email.addEventListener('input',()=>{
-    if( idCheck(id.value)=== true && mailCheck(email.value)=== true && pwCheck(pw.value, pw2.value)=== true ){
+    if( idCheck(id.value)=== true && vEmail(email.value)=== true && pwCheck(pw.value, pw2.value)=== true ){
       console.log("if 참")
       submitBtn.style.visibility = "visible";
     }
